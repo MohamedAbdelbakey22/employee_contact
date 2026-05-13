@@ -1,0 +1,51 @@
+<odoo>
+
+    <record id="employee_contact_view_tree" model="ir.ui.view">
+        <field name="name">Employee Contact Tree</field>
+        <field name="model">employee.contact</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="first_name"/>
+                <field name="last_name"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="employee_contact_view_form" model="ir.ui.view">
+        <field name="name">Employee Contact Form</field>
+        <field name="model">employee.contact</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group string="Basic Information">
+                        <group>
+                            <field name="first_name"/>
+                            <field name="last_name"/>
+                        </group>
+                        <group>
+                            <field name="email"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_employee_contact" model="ir.actions.act_window">
+        <field name="name">Employees</field>
+        <field name="res_model">employee.contact</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <menuitem
+            id="menu_employee_contact_root"
+            name="Employee Contact"
+    />
+    <menuitem
+            id="menu_employee_contact_list"
+            name="Contacts"
+            parent="menu_employee_contact_root"
+            action="action_employee_contact"
+    />
+</odoo>
